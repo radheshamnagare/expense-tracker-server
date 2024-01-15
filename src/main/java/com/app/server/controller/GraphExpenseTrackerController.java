@@ -1,6 +1,5 @@
 package com.app.server.controller;
 
-import com.app.server.bean.ExpenseTrackerBean;
 import com.app.server.modal.ManageGraph;
 import com.app.server.request.ExpenseTrackerGraphReq;
 import com.app.server.response.ExpenseTrackerGraphResponse;
@@ -21,8 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/graph")
-public class GraphExpenseTracker {
-    private final static Logger LOGGER = LogManager.getLogger(GraphExpenseTracker.class);
+public class GraphExpenseTrackerController {
+    private final static Logger LOGGER = LogManager.getLogger(GraphExpenseTrackerController.class);
     @Autowired
     GraphService graphService;
     @Autowired

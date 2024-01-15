@@ -16,9 +16,9 @@ public interface ExpenseTrackerRepo extends JpaRepository<ExpenseDetails, Intege
 
     List<ExpenseDetails> findByInsertTimeGreaterThanEqualAndInsertTimeLessThanEqual(Date star, Date end);
 
-    @Query(nativeQuery = true,value = "select DATE_FORMAT(now(),'%d %M %Y')  labelVal,sum(amout) as amountVal from m_expense_details where MONTH(insert_time)=:month and YEAR(insert_time)=:year group by labelVal,YEAR(insert_time)")
+    @Query(nativeQuery = true,value = "select DATE_FORMAT(now(),'%d %M %Y')  labelVal,sum(amount) as amountVal from m_expense_details where MONTH(insert_time)=:month and YEAR(insert_time)=:year group by labelVal,YEAR(insert_time)")
     List<GraphReportDto> findGraphDetailsOfMonth(@Param("month") int monthValue,@Param("year") int yearValue);
 
-    @Query(nativeQuery = true,value="select MONTHNAME(insert_time) labelVal,sum(amout) as amountVal from m_expense_details where YEAR(insert_time)=:year group by labelVal,YEAR(insert_time);")
+    @Query(nativeQuery = true,value="select MONTHNAME(insert_time) labelVal,sum(amount) as amountVal from m_expense_details where YEAR(insert_time)=:year group by labelVal,YEAR(insert_time);")
     List<GraphReportDto> findGraphDetailsOfYear(@Param("year") int year);
 }

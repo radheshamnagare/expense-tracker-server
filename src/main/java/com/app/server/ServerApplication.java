@@ -12,7 +12,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class ServerApplication {
 
     static final Logger LOGGER = LogManager.getLogger(ServerApplication.class);
-
     public static void main(String[] args) {
         SpringApplication.run(ServerApplication.class, args);
 

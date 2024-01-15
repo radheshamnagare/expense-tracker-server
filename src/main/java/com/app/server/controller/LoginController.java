@@ -2,6 +2,7 @@ package com.app.server.controller;
 
 import com.app.server.modal.JwtHelper;
 import com.app.server.modal.ManageLogin;
+import com.app.server.request.ExpenseTrackerListReq;
 import com.app.server.request.UserLoginRequst;
 import com.app.server.request.UserRegisterRequest;
 import com.app.server.response.DefaultResponse;
@@ -105,8 +106,9 @@ public class LoginController {
         return "Credentials Invalid !!";
     }
 
-    @GetMapping(value = "/sayhello",produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String test(){
+    @RequestMapping(value = "/sayhello",method = RequestMethod.POST,produces = {MediaType.APPLICATION_JSON_VALUE})
+    public String test(@RequestBody ExpenseTrackerListReq expenseTrackerListReq){
+
         return "Hello User!";
     }
 

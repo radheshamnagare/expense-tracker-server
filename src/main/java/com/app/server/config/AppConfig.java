@@ -54,7 +54,10 @@ public class AppConfig {
                 .cors(cors -> cors.disable())
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("server/").permitAll()
-                                .requestMatchers("user/login", "user/register","graph/lookup","expensetracker/lookup","expensetracker/create").permitAll()
+                                .requestMatchers("user/login", "user/register","expensetracker/lookup").permitAll()
+                                .requestMatchers("expensetracker/create","graph/lookup").permitAll()
+                                .requestMatchers("expensetracker/update").permitAll()
+                                .requestMatchers("expensetracker/delete").permitAll()
                         // .anyRequest().authenticated()
                                )
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(point))
